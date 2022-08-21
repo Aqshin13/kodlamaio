@@ -3,7 +3,7 @@ package kodlamaio.northwind.business.abstracts;
 import kodlamaio.northwind.core.utilities.results.DataResult;
 import kodlamaio.northwind.core.utilities.results.Result;
 import kodlamaio.northwind.entites.concretes.Product;
-import org.springframework.data.jpa.repository.Query;
+import kodlamaio.northwind.entites.dtos.ProductWithCategoryDto;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public interface ProductService {
     DataResult<List<Product>> getAllSorted();
 
 
-    DataResult<List<Product>> getAll(int pageNo,int pageSize);
+    DataResult<List<Product>> getAll(int pageNo, int pageSize);
 
 
     Result add(Product product);
@@ -35,4 +35,7 @@ public interface ProductService {
     DataResult<List<Product>> getByProductNameEndsWith(String productName);
 
     DataResult<List<Product>> getByNameAndCategory(String name, int id);
+
+    DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails();
+
 }

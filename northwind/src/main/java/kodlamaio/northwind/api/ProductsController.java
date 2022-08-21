@@ -5,8 +5,8 @@ import kodlamaio.northwind.business.abstracts.ProductService;
 import kodlamaio.northwind.core.utilities.results.DataResult;
 import kodlamaio.northwind.core.utilities.results.Result;
 import kodlamaio.northwind.entites.concretes.Product;
+import kodlamaio.northwind.entites.dtos.ProductWithCategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -62,5 +62,12 @@ public class ProductsController {
     @GetMapping("/getAllDesc")
     DataResult<List<Product>> getAllSorted(){
         return productService.getAllSorted();
+    }
+
+
+
+    @GetMapping("/getProductWithCategoryDetails")
+    public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails() {
+        return productService.getProductWithCategoryDetails();
     }
 }
